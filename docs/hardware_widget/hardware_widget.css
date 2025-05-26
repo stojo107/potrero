@@ -1,0 +1,371 @@
+
+     /* Import Hanken Grotesk font */
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap');
+
+        /* Namespace all styles to avoid conflicts with Squarespace */
+        .potrero-system-container * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .potrero-system-container {
+            font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px; /* Further reduced padding */
+            color: #1d1d1f;
+            line-height: 1.5;
+            /* Remove any height settings that might cause issues */
+        }
+
+        .potrero-system-heading {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .potrero-system-subheading {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #6e6e73;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 30px; /* Further reduced margin */
+            letter-spacing: -0.01em;
+            line-height: 1.5;
+        }
+
+        /* Modified grid layout for 2 cards on first row, 3 on second row */
+        .potrero-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px; /* Further reduced gap */
+            margin-bottom: 20px; /* Further reduced margin */
+        }
+
+        /* Apply a special grid layout for desktop */
+        @media (min-width: 992px) {
+            .potrero-features-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: auto auto;
+                gap: 20px; /* Reduced gap */
+            }
+            
+            /* First two cards span 3 columns each (2 cards in first row) */
+            .potrero-features-grid .potrero-feature-card:nth-child(1),
+            .potrero-features-grid .potrero-feature-card:nth-child(2),
+            .potrero-features-grid .potrero-feature-card:nth-child(3),
+            .potrero-features-grid .potrero-feature-card:nth-child(4),
+            .potrero-features-grid .potrero-feature-card:nth-child(5),
+            .potrero-features-grid .potrero-feature-card:nth-child(6),
+            .potrero-features-grid .potrero-feature-card:nth-child(7) {
+                grid-column: span 2;
+            }
+            
+            /* Last three cards span 2 columns each (3 cards in second row) */
+            /*.potrero-features-grid .potrero-feature-card:nth-child(3),
+            .potrero-features-grid .potrero-feature-card:nth-child(4),
+            .potrero-features-grid .potrero-feature-card:nth-child(5) {
+                grid-column: span 2;
+            }*/
+        }
+
+        /* Tablet layout - 2 columns */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .potrero-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .potrero-features-grid .potrero-feature-card {
+                grid-column: span 1;
+            }
+        }
+
+        /* Mobile layout - 1 column */
+        @media (max-width: 767px) {
+            .potrero-features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .potrero-features-grid .potrero-feature-card {
+                grid-column: span 1;
+            }
+            
+            /* Additional mobile-specific adjustments */
+            .potrero-system-container {
+                padding: 20px 15px; /* Even more reduced padding for mobile */
+            }
+            
+            .potrero-feature-image-container {
+                height: 180px !important; /* Force smaller image height on mobile */
+            }
+        }
+
+        .potrero-feature-card {
+            background: white;
+            border-radius: 16px; /* Slightly reduced radius */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+
+        .potrero-feature-card:hover {
+            transform: translateY(-4px); /* Reduced translation */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .potrero-feature-image-container {
+            height: 200px; /* Further reduced height */
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f7;
+        }
+
+        .potrero-feature-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .potrero-feature-card:hover .potrero-feature-image {
+            transform: scale(1.03);
+        }
+
+        .potrero-feature-content {
+            padding: 20px 20px 16px; /* Further reduced padding */
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .potrero-feature-title {
+            font-size: 1.15rem; /* Reduced font size */
+            font-weight: 600;
+            margin-bottom: 12px; /* Reduced margin */
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .potrero-feature-description {
+            font-size: 0.95rem; /* Slightly reduced font size */
+            line-height: 1.5;
+            color: #6e6e73;
+            margin-bottom: 16px; /* Further reduced */
+            flex: 1;
+        }
+        
+        .potrero-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .potrero-feature-list li {
+            position: relative;
+            padding-left: 14px; /* Reduced padding */
+            margin-bottom: 6px; /* Reduced margin */
+            position: relative;
+            font-size: 0.95rem; /* Consistent with description */
+        }
+        
+        .potrero-feature-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #65A30D; /* Brand green color for bullets */
+        }
+
+        .potrero-feature-highlight {
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .potrero-cta-section {
+            text-align: center;
+            margin: 16px auto 0; /* Further reduced */
+            max-width: 500px;
+        }
+
+        .potrero-cta-text {
+            font-size: 1.05rem; /* Slightly reduced */
+            color: #6e6e73;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .potrero-cta-button {
+            display: inline-block;
+            background-color: #65A30D;
+            color: white;
+            border: none;
+            padding: 12px 28px; /* Reduced padding */
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem; /* Reduced font size */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+        }
+
+        .potrero-cta-button:hover {
+            background-color: #4d7d0a;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 480px) {
+            .potrero-system-heading {
+                font-size: 1.6rem; /* Further reduced */
+            }
+            
+            .potrero-feature-image-container {
+                height: 180px; /* Further reduced for mobile */
+            }
+            
+            .potrero-feature-content {
+                padding: 16px 16px 14px; /* Further reduced padding for mobile */
+            }
+            
+            .potrero-feature-title {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+            
+            .potrero-feature-list li {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+        }
+        
+        /* Modal styles - updated to be more compact */
+        .potrero-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .potrero-modal-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            width: 90%;
+            max-width: 520px; /* Reduced from 560px */
+            background-color: white;
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            overflow: hidden;
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .potrero-modal-header {
+            padding: 14px 18px; /* Further reduced padding */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .potrero-modal-title {
+            margin: 0;
+            font-size: 1.2rem; /* Reduced from 1.25rem */
+            font-weight: 600;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+        
+        .potrero-modal-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px; /* Reduced from 28px */
+            height: 26px; /* Reduced from 28px */
+            background: #f5f5f7;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.1rem; /* Reduced from 1.2rem */
+            line-height: 1;
+            cursor: pointer;
+            color: #6e6e73;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        
+        .potrero-modal-close:hover {
+            background-color: #e4e4e7;
+            color: #1d1d1f;
+        }
+        
+        .potrero-modal-image-container {
+            width: 100%;
+            height: 220px; /* Reduced from 240px */
+            overflow: hidden;
+        }
+        
+        .potrero-modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .potrero-modal-body {
+            padding: 20px; /* Reduced from 24px */
+            color: #6e6e73;
+            line-height: 1.6;
+            font-size: 0.9rem; /* Reduced from 0.95rem */
+            letter-spacing: -0.01em;
+            max-height: 280px; /* Reduced from 300px */
+            overflow-y: auto;
+        }
+        
+        .potrero-modal-body p {
+            margin: 0 0 14px; /* Reduced from 16px */
+        }
+        
+        .potrero-modal-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .potrero-modal-body strong {
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 480px) {
+            .potrero-modal-container {
+                width: 95%; /* Increased width slightly for better readability */
+                max-width: 480px;
+            }
+            
+            .potrero-modal-image-container {
+                height: 180px; /* Further reduced for mobile */
+            }
+            
+            .potrero-modal-body {
+                padding: 16px;
+                max-height: 220px; /* Further reduced for mobile */
+                font-size: 0.85rem;
+            }
+        }

@@ -1,0 +1,229 @@
+/* CSS variables for consistent theming */
+:root {
+    --primary-color: #4CAF50;
+    --accent-color: #FF9800;
+    --text-color: #1d1d1f;
+    --secondary-text: #86868b;
+    --background-color: #ffffff;
+    --subtle-bg: #f5f5f7;
+    --border-color: #d2d2d7;
+}
+
+/* Universal box-sizing and font styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Section styling for content centering and padding */
+.vision-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    overflow: hidden;
+}
+
+/* Slider container styling with rounded corners and shadow */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 18px;
+    background-color: var(--background-color);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+}
+
+/* Slider flex container for horizontal slide arrangement */
+.slider {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+    height: 100%;
+}
+
+/* Individual slide styling */
+.slide {
+    min-width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--background-color);
+}
+
+/* Content area within each slide */
+.slide-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Heading styling for slides */
+.slide h3 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+/* Paragraph styling for slides */
+.slide p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: 400;
+}
+
+/* Unordered list styling for slides */
+.slide ul {
+    list-style: none;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* List item styling for slides */
+.slide li {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--secondary-text);
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 24px;
+    font-weight: 400;
+}
+
+/* Custom bullet point using ::before pseudo-element */
+.slide li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Data link styling */
+.data-link {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Data link hover effect */
+.data-link:hover {
+    opacity: 0.7;
+}
+
+/* Slider navigation dots container */
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+/* Individual slider dot styling */
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 6px;
+    background-color: var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active slider dot styling */
+.slider-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Slider navigation arrows container */
+.slider-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 2;
+    padding: 0 20px;
+}
+
+/* Arrow button styling */
+.arrow {
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+/* Arrow button hover effect */
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+/* Icon styling within arrow buttons */
+.arrow i {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Highlighted text styling */
+.highlight {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .vision-section {
+        padding: 30px 15px;
+    }
+    .slider-container {
+        min-height: 250px;
+        border-radius: 14px;
+    }
+    .slide {
+        padding: 30px 20px;
+    }
+    .slide h3 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    .slide p, .slide li {
+        font-size: 16px;
+    }
+    .slide li {
+        margin-bottom: 10px;
+    }
+    .arrow {
+        width: 36px;
+        height: 36px;
+    }
+}
